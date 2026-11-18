@@ -1,6 +1,5 @@
-# Proposta de hospedagem paga. Aplicar somente após aprovação dos custos.
-# Credenciais são preenchidas no Render, nunca neste repositório.
-# Não executa seed: o catálogo público começa vazio.
+# Proposta paga: exige aprovação dos custos e configuração externa.
+# Não inserir credenciais neste arquivo. Não executa seed.
 services:
 - type: web
   name: ingressos-online
@@ -115,15 +114,14 @@ services:
       name: ingressos-online
       envVarKey: SESSION_SECRET
   - key: DATABASE_URL
-    fromService:
-      type: web
-      name: ingressos-online
-      envVarKey: DATABASE_URL
+    fromDatabase:
+      name: ingressos-db
+      property: connectionString
   - key: APP_URL
     fromService:
       type: web
       name: ingressos-online
-      envVarKey: APP_URL
+      envVarKey: RENDER_EXTERNAL_URL
   - key: MP_ACCESS_TOKEN
     fromService:
       type: web
