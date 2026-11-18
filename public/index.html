@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#12131b" />
+    <meta
+      name="description"
+      content="Encontre eventos, compre ingressos online e acesse seus ingressos digitais."
+    />
+    <title>Seu Ingresso — Viva o próximo momento</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Pular para conteúdo</a>
+    <div class="topline" id="environment">
+      AMBIENTE DE VALIDAÇÃO · EVENTOS DE EXEMPLO
+    </div>
+    <header>
+      <a class="brand" href="#home"
+        ><span class="brand-mark" aria-hidden="true"
+          ><svg
+            class="arrow"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path d="M6 18L18 6M6 6h12v12" /></svg></span
+        ><span id="brand-name">Seu Ingresso</span></a
+      >
+      <nav aria-label="Principal">
+        <a href="#catalog">Explorar eventos</a
+        ><a href="#account">Meus ingressos</a>
+      </nav>
+      <div class="header-actions">
+        <button class="plain" id="account-button">
+          <span aria-hidden="true">○</span><span>Minha conta</span></button
+        ><button id="cart-button" class="bag">
+          Carrinho <span id="cart-count">0</span>
+        </button>
+      </div>
+    </header>
+    <main id="main" tabindex="-1">
+      <section class="loading">Carregando eventos…</section>
+    </main>
+    <footer>
+      <div>
+        <a class="brand" href="#home"
+          >Seu Ingresso
+          <svg
+            class="arrow"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path d="M6 18L18 6M6 6h12v12" /></svg
+        ></a>
+        <p id="footer-tagline">Seu próximo momento começa aqui.</p>
+      </div>
+      <div>
+        <a href="#account">Minha conta e ingressos</a
+        ><button class="text-button" id="policy-button">
+          Informações e políticas</button
+        ><span id="footer-contact"></span>
+      </div>
+      <div class="footer-small">
+        <span>Encontre. Escolha. Viva.</span
+        ><span>Brasil · R$ · Horário de Brasília</span>
+      </div>
+    </footer>
+    <dialog id="modal" aria-labelledby="modal-title">
+      <button class="close" id="modal-close" aria-label="Fechar janela">
+        ×
+      </button>
+      <div id="modal-content"></div>
+    </dialog>
+    <div id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

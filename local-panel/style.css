@@ -1,0 +1,143 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #f4f5f7;
+  background: #12131b;
+  color-scheme: dark;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 45px 20px;
+  line-height: 1.6;
+}
+main {
+  max-width: 730px;
+  margin: auto;
+}
+.badge {
+  color: #b7f45b;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 11px;
+}
+h1 {
+  font-size: clamp(32px, 6vw, 48px);
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+}
+h2 {
+  font-size: 23px;
+  line-height: 1.2;
+}
+p {
+  color: #bcc0d1;
+}
+section {
+  padding: 28px;
+  background: #1c1e29;
+  border: 1px solid #343644;
+  border-radius: 12px;
+  margin: 24px 0;
+}
+form {
+  display: grid;
+  gap: 18px;
+}
+label {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+}
+input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #565a6a;
+  background: #12131b;
+  color: #fff;
+  border-radius: 6px;
+  font: inherit;
+}
+button,
+.button {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 18px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: #b7f45b;
+  color: #111;
+  font: 700 14px Arial;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1.5;
+}
+button:disabled {
+  opacity: 0.5;
+}
+.secondary {
+  border-color: #5e6374;
+  background: transparent;
+  color: #fff;
+}
+.actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.text {
+  background: none;
+  color: #b7f45b;
+  padding: 0;
+  text-decoration: underline;
+}
+.success,
+.error {
+  border-radius: 6px;
+  padding: 16px;
+  background: #233525;
+  color: #c1efb9;
+}
+.error {
+  background: #3b242c;
+  color: #ffb6c6;
+}
+.small {
+  font-size: 12px;
+}
+hr {
+  border: 0;
+  border-top: 1px solid #343644;
+  margin: 24px 0;
+}
+article {
+  padding: 18px 0;
+  border-bottom: 1px solid #343644;
+  overflow-wrap: anywhere;
+}
+article p {
+  white-space: pre-wrap;
+  font-size: 13px;
+}
+a {
+  color: #b7f45b;
+}
+[hidden] {
+  display: none !important;
+}
+:focus-visible {
+  outline: 3px solid #b7f45b;
+  outline-offset: 3px;
+}
+@media (max-width: 500px) {
+  body {
+    padding: 25px 16px;
+  }
+  section {
+    padding: 21px;
+  }
+  .actions > * {
+    width: 100%;
+  }
+}

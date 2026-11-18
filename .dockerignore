@@ -1,0 +1,15 @@
+node_modules
+.env
+.env.*
+!.env.example
+.local-db
+.qa-db*
+.test-db
+uploads
+*.dump
+*.log
+.git
+
+.runtime/
+dados-locais/
+logs/

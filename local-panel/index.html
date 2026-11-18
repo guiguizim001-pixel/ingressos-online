@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Iniciar · Seu Ingresso</title>
+    <link rel="stylesheet" href="/_easy/assets/style.css" />
+    <script type="module" src="/_easy/assets/start.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="badge">SEU INGRESSO · MODO FÁCIL</div>
+      <h1>Seu site está pronto<br />para começar.</h1>
+      <p>
+        Banco de dados e servidor iniciados automaticamente.<br />Esta versão
+        funciona no seu computador, com pagamentos desativados.
+      </p>
+      <div id="status" role="status">Conferindo seu cadastro…</div>
+      <section id="setup" hidden>
+        <h2>Crie seu acesso de administrador</h2>
+        <p>Você só precisa fazer isso na primeira abertura.</p>
+        <form id="owner">
+          <label
+            >Seu nome<input
+              name="name"
+              required
+              maxlength="160"
+              autocomplete="name" /></label
+          ><label
+            >Seu e-mail<input
+              name="email"
+              type="email"
+              required
+              autocomplete="username" /></label
+          ><label
+            >Crie uma senha (mínimo de 12 caracteres)<input
+              name="password"
+              type="password"
+              required
+              minlength="12"
+              maxlength="128"
+              autocomplete="new-password" /></label
+          ><label
+            >Repita a senha<input
+              name="confirm"
+              type="password"
+              required
+              minlength="12"
+              maxlength="128"
+              autocomplete="new-password" /></label
+          ><button type="submit">Criar acesso e entrar no painel</button>
+        </form>
+      </section>
+      <section id="ready" hidden>
+        <h2>O que você quer abrir?</h2>
+        <div class="actions">
+          <a href="/#home" class="button">Ver meu site de ingressos ↗</a
+          ><a href="/#admin" class="button secondary">Administrar eventos</a>
+        </div>
+        <p>
+          Entre com o e-mail e a senha que você cadastrou. Seus dados continuam
+          salvos ao fechar e abrir o programa.
+        </p>
+      </section>
+      <section id="extras" hidden>
+        <button class="text" id="mail">
+          E-mails de teste / recuperar senha
+        </button>
+        <div id="mail-list"></div>
+        <p class="small">
+          As mensagens desta versão são locais e não são enviadas para uma caixa
+          de e-mail real. Elas ficam disponíveis enquanto esta janela do
+          programa está aberta.
+        </p>
+        <hr />
+        <button class="secondary" id="stop">
+          Encerrar o site com segurança
+        </button>
+        <p class="small">
+          Para voltar, abra novamente o arquivo ABRIR_INGRESSOS.bat.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+node_modules/
+.env
+.env.*
+!.env.example
+uploads/
+.test-db/
+.local-db/
+coverage/
+*.log
+*.dump
+.qa-db*/
+scripts/qa-preview.js
+
+.runtime/
+dados-locais/
+logs/

@@ -1,0 +1,26 @@
+# MODELO DE PRODUÇÃO: os planos abaixo são pagos.
+# Não aplicar/criar recursos antes da decisão do proprietário e validação local.
+# Configurar segredos manualmente no painel; não colocar valores neste arquivo.
+# Usar o mesmo grupo de variáveis para web e worker.
+services:
+  - type: web
+    name: minha-loja
+    runtime: node
+    plan: starter
+    buildCommand: npm ci --omit=dev
+    preDeployCommand: npm run db:migrate
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - fromGroup: minha-loja-segredos
+  - type: worker
+    name: minha-loja-worker
+    runtime: node
+    plan: starter
+    buildCommand: npm ci --omit=dev
+    startCommand: npm run worker
+    envVars:
+      - fromGroup: minha-loja-segredos
+# O PostgreSQL persistente deve ser criado e escolhido separadamente,
+# com tamanho, região, backups e preço aprovados pelo proprietário.
+# DATABASE_URL no grupo deve apontar ao banco escolhido.

@@ -1,0 +1,28 @@
+SEU INGRESSO - ABERTURA FACIL NO WINDOWS
+
+1. Clique com o botao direito no arquivo ZIP e escolha EXTRAIR TUDO.
+2. Abra a pasta extraida e de dois cliques em ABRIR_INGRESSOS.bat.
+3. Aguarde. Na primeira abertura, o programa baixa os componentes necessarios.
+4. O navegador abre sozinho. Cadastre seu nome, e-mail e uma senha.
+
+Pronto! Voce pode ver o site e administrar seus eventos.
+Nao precisa instalar Docker, preparar banco de dados ou digitar comandos.
+
+IMPORTANTE
+- Requer Windows 10/11 de 64 bits, Intel ou AMD, e internet na primeira abertura.
+- A primeira preparacao pode demorar; nao feche a janela enquanto estiver baixando.
+- Nas proximas vezes, use o mesmo ABRIR_INGRESSOS.bat.
+- Mantenha a janela do programa aberta enquanto usa o site.
+- Para parar, use "Encerrar o site com seguranca" no painel inicial.
+- Os dados ficam em sistema\dados-locais. Nao apague essa pasta.
+- Este modo e para testar no seu PC. Os pagamentos ficam desativados.
+- E-mails de recuperacao aparecem no painel inicial, em "E-mails de teste".
+
+SE NAO ABRIR
+Envie uma foto da mensagem exibida na janela do programa.
+Se a falha ocorrer no download, confira sua internet e abra o arquivo novamente.
+Nao e necessario apagar os dados nem instalar tudo de novo.
+
+O modo facil usa um banco proprio, separado de instalacoes antigas.
+Se voce ja tinha cadastros no sistema anterior, preserve a pasta antiga.
+Os dados antigos nao sao apagados nem importados automaticamente.
