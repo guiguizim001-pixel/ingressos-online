@@ -1,0 +1,201 @@
+# Proposta de hospedagem paga. Aplicar somente após aprovação dos custos.
+# Credenciais são preenchidas no Render, nunca neste repositório.
+# Não executa seed: o catálogo público começa vazio.
+services:
+- type: web
+  name: ingressos-online
+  runtime: node
+  region: virginia
+  plan: 0.5c-512mb
+  buildCommand: npm ci --omit=dev
+  autoDeployTrigger: 'off'
+  preDeployCommand: npm run db:migrate
+  startCommand: npm start
+  healthCheckPath: /health
+  envVars:
+  - key: NODE_ENV
+    value: production
+  - key: NODE_VERSION
+    value: 24.22.1
+  - key: TRUST_PROXY
+    value: '1'
+  - key: MP_MODE
+    value: production
+  - key: STORAGE_DRIVER
+    value: s3
+  - key: SMTP_PORT
+    value: '587'
+  - key: SMTP_SECURE
+    value: 'false'
+  - key: SESSION_SECRET
+    generateValue: true
+  - key: DATABASE_URL
+    fromDatabase:
+      name: ingressos-db
+      property: connectionString
+  - key: APP_URL
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: RENDER_EXTERNAL_URL
+  - key: MP_ACCESS_TOKEN
+    sync: false
+  - key: MP_WEBHOOK_SECRET
+    sync: false
+  - key: MP_COLLECTOR_ID
+    sync: false
+  - key: SMTP_HOST
+    sync: false
+  - key: SMTP_USER
+    sync: false
+  - key: SMTP_PASS
+    sync: false
+  - key: MAIL_FROM
+    sync: false
+  - key: S3_REGION
+    sync: false
+  - key: S3_ENDPOINT
+    sync: false
+  - key: S3_BUCKET
+    sync: false
+  - key: S3_ACCESS_KEY_ID
+    sync: false
+  - key: S3_SECRET_ACCESS_KEY
+    sync: false
+  - key: S3_PUBLIC_URL
+    sync: false
+- type: worker
+  name: ingressos-pagamentos
+  runtime: node
+  region: virginia
+  plan: 0.5c-512mb
+  buildCommand: npm ci --omit=dev
+  autoDeployTrigger: 'off'
+  preDeployCommand: npm run db:migrate
+  startCommand: npm run worker
+  envVars:
+  - key: NODE_ENV
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: NODE_ENV
+  - key: NODE_VERSION
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: NODE_VERSION
+  - key: TRUST_PROXY
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: TRUST_PROXY
+  - key: MP_MODE
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: MP_MODE
+  - key: STORAGE_DRIVER
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: STORAGE_DRIVER
+  - key: SMTP_PORT
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: SMTP_PORT
+  - key: SMTP_SECURE
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: SMTP_SECURE
+  - key: SESSION_SECRET
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: SESSION_SECRET
+  - key: DATABASE_URL
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: DATABASE_URL
+  - key: APP_URL
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: APP_URL
+  - key: MP_ACCESS_TOKEN
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: MP_ACCESS_TOKEN
+  - key: MP_WEBHOOK_SECRET
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: MP_WEBHOOK_SECRET
+  - key: MP_COLLECTOR_ID
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: MP_COLLECTOR_ID
+  - key: SMTP_HOST
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: SMTP_HOST
+  - key: SMTP_USER
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: SMTP_USER
+  - key: SMTP_PASS
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: SMTP_PASS
+  - key: MAIL_FROM
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: MAIL_FROM
+  - key: S3_REGION
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: S3_REGION
+  - key: S3_ENDPOINT
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: S3_ENDPOINT
+  - key: S3_BUCKET
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: S3_BUCKET
+  - key: S3_ACCESS_KEY_ID
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: S3_ACCESS_KEY_ID
+  - key: S3_SECRET_ACCESS_KEY
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: S3_SECRET_ACCESS_KEY
+  - key: S3_PUBLIC_URL
+    fromService:
+      type: web
+      name: ingressos-online
+      envVarKey: S3_PUBLIC_URL
+databases:
+- name: ingressos-db
+  region: virginia
+  plan: 0.1c-256mb
+  diskSizeGB: 1
+  storageAutoscalingEnabled: false
+  postgresMajorVersion: '18'
+  databaseName: ingressos
+  user: ingressos
+  ipAllowList: []
